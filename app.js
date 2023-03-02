@@ -3,10 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var receiveCookiesRouter = require('./routes/getCookies');
+
 
 var app = express();
 
@@ -40,5 +42,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+var allowedOrigins = ['https://aa52-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io',//3001
+                      'https://fe4e-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io'];//3002;
+                      app.use(cors({
+                        origin:allowedOrigins,
+                        credentials: true,
+                      }));                      
 module.exports = app;

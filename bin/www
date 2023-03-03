@@ -84,7 +84,7 @@ function onError(error) {
 function onListening() {
 
   var addr = server.address();
-  console.log(`starting Second app on ${addr.port}`)
+  console.log(`starting share cookie II app on ${addr.port}`)
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;

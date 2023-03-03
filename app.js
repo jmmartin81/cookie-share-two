@@ -31,19 +31,16 @@ var app = express();
 //   // allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Cabeceras permitidas en la solicitud
 // }));
 
-// app.use((req, res, next) => {
-//   console.log('ACAAAAAA')
-//   res.header('Access-Control-Allow-Origin', 'https://8118-2803-9800-909f-80fc-69f8-103c-d1d-9dd1.sa.ngrok.io'); // Reemplaza por el dominio que va a hacer la petición
-//   res.header('Access-Control-Allow-Credentials', true);
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Origin, x-xsrf-token, X-Requested-With, Content-Type, Accept');
-//   next();
-// });
+app.use((req, res, next) => {
+  console.log('ACAAAAAA')
+  res.header('Access-Control-Allow-Origin', 'https://5e4a-181-117-166-245.sa.ngrok.io'); // Reemplaza por el dominio que va a hacer la petición
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, x-xsrf-token, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
-app.use(cors({
-  origin: 'https://5e4a-181-117-166-245.sa.ngrok.io',
-  credentials: true
-}));
+// //
 
 
 // Configuración de cabeceras "Forwarded" y "X-Forwarded-For"
